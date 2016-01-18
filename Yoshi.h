@@ -6,6 +6,7 @@
 //                                  Includes
 // ===========================================================================
 #include "Character.h"
+#include <iostream>
 
 
 class Yoshi : public Character {
@@ -37,6 +38,7 @@ class Yoshi : public Character {
   // =========================================================================
   virtual void Accelerate();
   void Break();
+  void WhatAmI();
 
  protected :
   // =========================================================================
