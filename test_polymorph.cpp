@@ -4,7 +4,7 @@
 // ===========================================================================
 #include <cstdio>
 #include <cstdlib>
-#
+
 #include "Character.h"
 #include "Yoshi.h"
 
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
   printf("Character 2 speed : %f\n", character2.speed());
   printf("Character 3 speed : %f\n", character3->speed());
   printf("Character 4 speed : %f\n", character4->speed());
-  printf("Character 7 speed : %f\n", character6->speed());
+  printf("Character 7 speed : %f\n", character7->speed());
 
   printf("\n" );
 
@@ -42,13 +42,17 @@ int main(int argc, char* argv[]) {
   character2.Break();
   character3->Break();
   character4->Break();
-  character6.Break();
+  character7->Break();
 
   printf("Character 1 speed : %f\n", character1.speed());
   printf("Character 2 speed : %f\n", character2.speed());
   printf("Character 3 speed : %f\n", character3->speed());
   printf("Character 4 speed : %f\n", character4->speed());
   printf("Character 7 speed : %f\n", character7->speed());
+
+  delete character3;
+  delete character4;
+  delete character7;
 
   return 0;
 }
