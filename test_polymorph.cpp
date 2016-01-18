@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
   printf("Character 2 speed : %f\n", character2.speed());
   printf("Character 3 speed : %f\n", character3->speed());
   printf("Character 4 speed : %f\n", character4->speed());
-  printf("Character 6 speed : %f\n", character6.speed());
+  printf("Character 7 speed : %f\n", character6->speed());
 
   printf("\n" );
 
