@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
+#include <string>
+#include <vector>
 
 #include "Character.h"
 #include "Yoshi.h"
@@ -28,24 +30,34 @@ int main(int argc, char* argv[]) {
   Mario*      character3 = new Mario();
   Mario*      character4 = new Mario();
 
+  vector<Character*> persos;
+  persos.push_back(character1);
+  persos.push_back(character2);
+  persos.push_back(character3);
+  persos.push_back(character4);
+
+
+
   for (int i=0;i<10;i++){
-    character1->Accelerate();
-    character2->Accelerate();
-    character3->Accelerate();
-    character4->Accelerate();
-    fichier << character1->speed() <<"\t\t\t"<<character2->speed()<<"\t\t\t"\
-<<character3->speed()<<"\t\t\t"<< character4->speed()<< endl;
+    string vitesse = "";
+    for (vector<Character*>::iterator it = persos.begin();\
+ it != persos.end(); ++it){
+      (**it).Accelerate();
+      vitesse += to_string((**it).speed()) + "\t\t";
+    }
+    fichier << vitesse << endl;
   }
   
   printf("\n" );
 
   for (int i=0;i<10;i++){
-    character1->Break();
-    character2->Break();
-    character3->Break();
-    character4->Break();
-    fichier << character1->speed() <<"\t\t\t"<<character2->speed()<<"\t\t\t"\
-<<character3->speed()<<"\t\t\t"<< character4->speed()<< endl;
+    string vitesse = "";
+    for (vector<Character*>::iterator it = persos.begin();\
+ it != persos.end(); ++it){
+      (**it).Break();
+      vitesse += to_string((**it).speed()) + "\t\t";
+    }
+    fichier << vitesse << endl;
   }
 
 
