@@ -7,7 +7,7 @@
 // ===========================================================================
 #include "Character.h"
 #include <iostream>
-
+using namespace std;
 
   enum palette{RED, GREEN, YELLOW, PINK, BLUE};
   
@@ -21,7 +21,7 @@ class Yoshi : public Character {
   Yoshi();
   Yoshi(palette c);
   Yoshi(const Yoshi& model);
-  const Yoshi &operator=(const Yoshi&);
+  inline const Yoshi &operator=(const Yoshi&);
 
   // =========================================================================
   //                                Destructor
@@ -44,7 +44,7 @@ class Yoshi : public Character {
   //                              Public Methods
   // =========================================================================
   virtual void Accelerate();
-  void WhatAmI();
+  void WhatAmI() const;
 
  protected :
   // =========================================================================
@@ -71,6 +71,12 @@ class Yoshi : public Character {
 // ===========================================================================
 //                           Operators' definitions
 // ===========================================================================
+inline const Yoshi& Yoshi::operator=(const Yoshi& model){
+  *speed_ = *(model.speed_);
+  colour_ = model.colour_;
+  max_speed_ = model.max_speed_;
+  return *this;
+}
 
 // ===========================================================================
 //                        Inline functions' definition

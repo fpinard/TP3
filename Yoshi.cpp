@@ -3,7 +3,7 @@
 //                                  Includes
 // ===========================================================================
 #include "Yoshi.h"
-using namespace std;
+
 
 // ===========================================================================
 //                       Definition of static attributes
@@ -27,12 +27,6 @@ Yoshi::Yoshi(const Yoshi& model): Character(model){
   max_speed_ = model.max_speed_;
 }
 
-const Yoshi& Yoshi::operator=(const Yoshi& model){
-  *speed_ = *(model.speed_);
-  colour_ = model.colour_;
-  max_speed_ = model.max_speed_;
-  return *this;
-}
 
 
 // ===========================================================================
@@ -51,7 +45,7 @@ void Yoshi::Accelerate() {
   if (*speed_ > max_speed_) *speed_ = max_speed_;
 }
 
-void Yoshi::WhatAmI(){
+void Yoshi::WhatAmI() const{
   switch(colour_){
     case RED : cout<<"red ";  break;
     case GREEN : cout<<"green ";  break;

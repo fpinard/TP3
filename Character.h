@@ -2,6 +2,8 @@
 #ifndef CHARACTER_H__
 #define CHARACTER_H__
 
+using namespace std;
+
 // ===========================================================================
 //                                  Includes
 // ===========================================================================
@@ -14,7 +16,6 @@ class Character {
   // =========================================================================
   Character();
   Character(const Character& model);
-  virtual const Character &operator=(const Character&);
 
   // =========================================================================
   //                                Destructor
@@ -33,13 +34,14 @@ class Character {
   // =========================================================================
   //                                 Operators
   // =========================================================================
-
+  inline virtual const Character &operator=(const Character&);
+  inline friend ostream& operator<<(ostream&,const Character&);
   // =========================================================================
   //                              Public Methods
   // =========================================================================
   virtual void Accelerate();
   virtual void Break();
-  virtual void WhatAmI()=0;
+  virtual void WhatAmI() const=0;
 
 protected :
   // =========================================================================
@@ -69,6 +71,15 @@ inline float Character::speed() const {
 //                           Operators' definitions
 // ===========================================================================
 
+inline const Character& Character::operator=(const Character& model){
+  *speed_ = *(model.speed_);
+  max_speed_ = model.max_speed_;
+  return *this;
+}
+inline ostream& operator<<(ostream& os, const Character& model){
+  os <<"Vitesse : " << model.speed()<<endl;
+  return os;
+}
 // ===========================================================================
 //                        Inline functions' definition
 // ===========================================================================

@@ -33,11 +33,6 @@ Character::Character(const Character& model){
 }
 
 
-const Character& Character::operator=(const Character& model){
-  *speed_ = *(model.speed_);
-  max_speed_ = model.max_speed_;
-  return *this;
-}
 
 // ===========================================================================
 //                                 Destructor

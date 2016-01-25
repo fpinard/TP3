@@ -49,15 +49,17 @@ int main(int argc, char* argv[]) {
     fichier << vitesse << endl;
   }
 
-  Yoshi       character5{};
+  Mario       character5{};
   Mario       character6{*character3};
-  character5 = *character2;
+  character5 = *character4;
   
 
   cout<<"Vitesse character 5 : "<<character5.speed()<<endl;
   cout<<"Vitesse character 6 : "<<character6.speed()<<endl;
-  cout<<"Vitesse character 2 : "<<character2->speed()<<endl;
+  cout<<"Vitesse character 4 : "<<character4->speed()<<endl;
   cout<<"Vitesse character 3 : "<<character3->speed()<<endl;
+
+  cout << *character3;
   
   printf("\n" );
 

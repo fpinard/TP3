@@ -20,7 +20,6 @@ Mario::Mario(const Mario& model) : Character(model){
 
 }
 
-
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
@@ -35,7 +34,7 @@ void Mario::Break() {
   else *speed_ *= 0.7;
 }
 
-void Mario::WhatAmI(){
+void Mario::WhatAmI() const{
   std::cout<<"Mario"<<std::endl;
 }
 
