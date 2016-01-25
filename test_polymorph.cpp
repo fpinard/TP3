@@ -4,10 +4,12 @@
 // ===========================================================================
 #include <cstdio>
 #include <cstdlib>
+#include <fstream>
 
 #include "Character.h"
 #include "Yoshi.h"
 #include "Mario.h"
+using namespace std;
 
 
 // ===========================================================================
@@ -19,44 +21,39 @@
 //                                    MAIN
 // ===========================================================================
 int main(int argc, char* argv[]) {
-  Yoshi       character2 = Yoshi();
-  Yoshi*      character4 = new Yoshi();
-  Character*  character7 = new Yoshi();
-  Yoshi       character1 = Yoshi(BLUE);
-  Mario       character0 = Mario();
+  ofstream fichier("vitesse.txt", ios::out | ios::trunc);
+  fichier << "Yoshi1\t\t\tYoshi2\t\t\tMario1\t\t\tMario2" << endl;
+  Yoshi*      character1 = new Yoshi();
+  Yoshi*      character2 = new Yoshi();
+  Mario*      character3 = new Mario();
+  Mario*      character4 = new Mario();
 
-  character2.Accelerate();
-  character4->Accelerate();
-  character7->Accelerate();
-  character0.Accelerate();
-
+  for (int i=0;i<10;i++){
+    character1->Accelerate();
+    character2->Accelerate();
+    character3->Accelerate();
+    character4->Accelerate();
+    fichier << character1->speed() <<"\t\t\t"<<character2->speed()<<"\t\t\t"\
+<<character3->speed()<<"\t\t\t"<< character4->speed()<< endl;
+  }
   
-
-  printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 4 speed : %f\n", character4->speed());
-  printf("Character 7 speed : %f\n", character7->speed());
-  printf("Character 0 speed : %f\n", character0.speed());
-
-
   printf("\n" );
 
-  character2.Break();
-  character4->Break();
-  character7->Break();
-  character0.Break();
+  for (int i=0;i<10;i++){
+    character1->Break();
+    character2->Break();
+    character3->Break();
+    character4->Break();
+    fichier << character1->speed() <<"\t\t\t"<<character2->speed()<<"\t\t\t"\
+<<character3->speed()<<"\t\t\t"<< character4->speed()<< endl;
+  }
 
 
-  printf("couleur super belle : %d\n",character1.colour());
-
-  printf("Character 2 speed : %f\n", character2.speed());
-  printf("Character 4 speed : %f\n", character4->speed());
-  printf("Character 7 speed : %f\n", character7->speed());
-  printf("Character 0 speed : %f\n", character0.speed());
-
-
+  delete character1;
+  delete character2;
+  delete character3;
   delete character4;
-  delete character7;
 
-
+  fichier.close();
   return 0;
 }
