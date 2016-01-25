@@ -26,7 +26,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
   ofstream fichier("vitesse.txt", ios::out | ios::trunc);
   fichier << "Yoshi1\t\t\tYoshi2\t\t\tMario1\t\t\tMario2" << endl;
-  Yoshi*      character1 = new Yoshi();
+  Yoshi*      character1 = new Yoshi(BLUE);
   Yoshi*      character2 = new Yoshi();
   Mario*      character3 = new Mario();
   Mario*      character4 = new Mario();
@@ -60,6 +60,7 @@ int main(int argc, char* argv[]) {
     fichier << vitesse << endl;
   }
 
+  character1->WhatAmI();
 
   delete character1;
   delete character2;
