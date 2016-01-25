@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <list>
 
 #include "Character.h"
 #include "Yoshi.h"
@@ -30,7 +31,8 @@ int main(int argc, char* argv[]) {
   Mario*      character3 = new Mario();
   Mario*      character4 = new Mario();
 
-  vector<Character*> persos;
+  list<Character*> persos;
+
   persos.push_back(character1);
   persos.push_back(character2);
   persos.push_back(character3);
@@ -40,8 +42,8 @@ int main(int argc, char* argv[]) {
 
   for (int i=0;i<10;i++){
     string vitesse = "";
-    for (vector<Character*>::iterator it = persos.begin();\
- it != persos.end(); ++it){
+    for (list<Character*>::iterator it = persos.begin();\
+ it != persos.end(); it++){
       (**it).Accelerate();
       vitesse += to_string((**it).speed()) + "\t\t";
     }
@@ -52,8 +54,8 @@ int main(int argc, char* argv[]) {
 
   for (int i=0;i<10;i++){
     string vitesse = "";
-    for (vector<Character*>::iterator it = persos.begin();\
- it != persos.end(); ++it){
+    for (list<Character*>::iterator it = persos.begin();\
+ it != persos.end(); it++){
       (**it).Break();
       vitesse += to_string((**it).speed()) + "\t\t";
     }
