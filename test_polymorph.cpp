@@ -42,10 +42,9 @@ int main(int argc, char* argv[]) {
 
   for (int i=0;i<10;i++){
     string vitesse = "";
-    for (list<Character*>::iterator it = persos.begin();\
- it != persos.end(); it++){
-      (**it).Accelerate();
-      vitesse += to_string((**it).speed()) + "\t\t";
+    for (auto it : persos){
+      (*it).Accelerate();
+      vitesse += to_string((*it).speed()) + "\t\t";
     }
     fichier << vitesse << endl;
   }
@@ -54,10 +53,9 @@ int main(int argc, char* argv[]) {
 
   for (int i=0;i<10;i++){
     string vitesse = "";
-    for (list<Character*>::iterator it = persos.begin();\
- it != persos.end(); it++){
-      (**it).Break();
-      vitesse += to_string((**it).speed()) + "\t\t";
+    for (auto it : persos){
+      (*it).Break();
+      vitesse += to_string((*it).speed()) + "\t\t";
     }
     fichier << vitesse << endl;
   }
