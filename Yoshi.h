@@ -8,7 +8,10 @@
 #include "Character.h"
 #include <iostream>
 
-  enum colour{RED, GREEN, YELLOW, PINK, BLUE};
+
+  enum palette{RED, GREEN, YELLOW, PINK, BLUE};
+  
+
 
 class Yoshi : public Character {
  public :
@@ -16,7 +19,7 @@ class Yoshi : public Character {
   //                               Constructors
   // =========================================================================
   Yoshi();
-  Yoshi(int c);
+  Yoshi(palette c);
   Yoshi(const Yoshi& model);
   const Yoshi &operator=(const Yoshi&);
 
@@ -28,7 +31,7 @@ class Yoshi : public Character {
   // =========================================================================
   //                                  Getters
   // =========================================================================
-  inline int colour() const;
+  inline palette colour() const;
   // =========================================================================
   //                                  Setters
   // =========================================================================
@@ -51,14 +54,14 @@ class Yoshi : public Character {
   // =========================================================================
   //                                Attributes
   // =========================================================================
-  int colour_;
+  palette colour_;
 
 };
 
 // ===========================================================================
 //                            Getters' definitions
 // ===========================================================================
-  inline int Yoshi::colour() const {
+  inline palette Yoshi::colour() const {
     return colour_;
   }
 // ===========================================================================

@@ -13,14 +13,14 @@ using namespace std;
 //                                Constructors
 // ===========================================================================
 Yoshi::Yoshi() {
-  colour_ = 0;
+  colour_ = palette(0);
 }
 
-Yoshi::Yoshi(int c) {
+Yoshi::Yoshi(palette c) {
   colour_ = c;
 }
 
-Yoshi::Yoshi(const Yoshi& model){
+Yoshi::Yoshi(const Yoshi& model): Character(model){
   *speed_ = *(model.speed_);
   cout<<*speed_<<endl;
   colour_ = model.colour_;
