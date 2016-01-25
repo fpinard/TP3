@@ -17,6 +17,8 @@ class Yoshi : public Character {
   // =========================================================================
   Yoshi();
   Yoshi(int c);
+  Yoshi(const Yoshi& model);
+  const Yoshi &operator=(const Yoshi&);
 
   // =========================================================================
   //                                Destructor

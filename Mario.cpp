@@ -16,6 +16,10 @@ Mario::Mario() {
   
 }
 
+Mario::Mario(const Mario& model) : Character(model){
+
+}
+
 
 // ===========================================================================
 //                                 Destructor

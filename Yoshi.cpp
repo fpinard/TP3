@@ -20,6 +20,21 @@ Yoshi::Yoshi(int c) {
   colour_ = c;
 }
 
+Yoshi::Yoshi(const Yoshi& model){
+  *speed_ = *(model.speed_);
+  cout<<*speed_<<endl;
+  colour_ = model.colour_;
+  max_speed_ = model.max_speed_;
+}
+
+const Yoshi& Yoshi::operator=(const Yoshi& model){
+  *speed_ = *(model.speed_);
+  colour_ = model.colour_;
+  max_speed_ = model.max_speed_;
+  return *this;
+}
+
+
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================

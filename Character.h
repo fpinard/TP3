@@ -13,6 +13,8 @@ class Character {
   //                               Constructors
   // =========================================================================
   Character();
+  Character(const Character& model);
+  virtual const Character &operator=(const Character&);
 
   // =========================================================================
   //                                Destructor

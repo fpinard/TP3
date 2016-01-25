@@ -25,6 +25,20 @@ Character::Character() {
   std::cout<<"nombre instances :"<<nb_instances<<std::endl;
 }
 
+Character::Character(const Character& model){
+  speed_ = new float (*(model.speed_));
+  max_speed_ = model.max_speed_;
+  nb_instances ++;
+  std::cout<<"nombre instances :"<<nb_instances<<std::endl;
+}
+
+
+const Character& Character::operator=(const Character& model){
+  *speed_ = *(model.speed_);
+  max_speed_ = model.max_speed_;
+  return *this;
+}
+
 // ===========================================================================
 //                                 Destructor
 // ===========================================================================
